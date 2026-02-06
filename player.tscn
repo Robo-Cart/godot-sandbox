@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dptt61ossfmn2"]
+[gd_scene format=3 uid="uid://dptt61ossfmn2"]
 
 [ext_resource type="Texture2D" uid="uid://crbk1m5xcyspl" path="res://Assets/Player/Run/GirlSample_Run_DownRight.png" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://cdddw26vut4d1" path="res://Assets/Player/Run/GirlSample_Run_Up.png" id="1_onrkg"]
@@ -130,13 +130,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_606se"]
 radius = 33.06055
 
-[node name="Player" type="Sprite2D"]
+[node name="Player" type="Sprite2D" unique_id=1391396095]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=41785808]
 sprite_frames = SubResource("SpriteFrames_bwjto")
 animation = &"run_up"
 autoplay = "run_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1208722211]
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_606se")
