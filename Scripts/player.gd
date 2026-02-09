@@ -10,7 +10,7 @@ var playback : AnimationNodeStateMachinePlayback
 func _ready():
 	playback = animation_tree["parameters/playback"]
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	input = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = input * speed	
 	move_and_slide()
