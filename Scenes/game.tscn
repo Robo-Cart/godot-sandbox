@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://iasdy6e4dgxo" path="res://Assets/Sprites/roguelikeCity_magenta.png" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://btawln3qidduy" path="res://Scenes/enemy.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://chuxmxy42fppi" path="res://Scenes/drone.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://bwdujvrtv1omi" path="res://Scenes/turret.tscn" id="5_wowpa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6g32"]
 texture = ExtResource("2_3dryh")
@@ -1162,7 +1163,19 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Enemy" parent="." unique_id=711611962 instance=ExtResource("3_wrm1d")]
-position = Vector2(642, 334)
+position = Vector2(844, 317)
 
 [node name="Drone" parent="." unique_id=496178693 instance=ExtResource("4_3dryh")]
 position = Vector2(698, 425)
+
+[node name="Turret" parent="." unique_id=530332290 instance=ExtResource("5_wowpa")]
+position = Vector2(748, 230)
+
+[node name="Turret2" parent="." unique_id=598052989 instance=ExtResource("5_wowpa")]
+position = Vector2(815, 415)
+
+[node name="Turret3" parent="." unique_id=1222584848 instance=ExtResource("5_wowpa")]
+position = Vector2(567, 522)
+
+[node name="Turret4" parent="." unique_id=2136568357 instance=ExtResource("5_wowpa")]
+position = Vector2(590, 220)
