@@ -2,7 +2,7 @@ extends State
 class_name EnemyIdle
 
 @export var enemy: CharacterBody2D
-@export var move_speed := 60.0
+@export var move_speed : float = 60.0
 
 var move_direction: Vector2
 var wander_time: float

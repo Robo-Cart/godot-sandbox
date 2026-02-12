@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bb7ahnhyaunbh" path="res://Assets/Sprites/slime_green.png" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://ucgwb2q251di" path="res://Scripts/States/StateMachine.gd" id="3_afpow"]
 [ext_resource type="Script" uid="uid://dipbcpvgge7dn" path="res://Scripts/States/EnemyIdle.gd" id="4_287tu"]
+[ext_resource type="Script" uid="uid://beyo41jd43t8x" path="res://Scripts/States/EnemyFollow.gd" id="5_0830c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
 size = Vector2(12, 8)
@@ -347,8 +348,9 @@ _data = {
 &"TakingDamage": SubResource("Animation_1dp5w")
 }
 
-[node name="Enemy" type="CharacterBody2D" unique_id=569572327]
+[node name="Enemy" type="CharacterBody2D" unique_id=569572327 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_1f0kj")
+animation_tree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=183972459]
 position = Vector2(0, -12)
@@ -375,9 +377,14 @@ libraries/ = SubResource("AnimationLibrary_auwsv")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1011469173 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_afpow")
-initial_state = NodePath("EnemyIdle")
+initial_state = NodePath("Follow")
 
-[node name="EnemyIdle" type="Node" parent="StateMachine" unique_id=1040478947 node_paths=PackedStringArray("enemy")]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1040478947 node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_287tu")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://dipbcpvgge7dn"
+
+[node name="Follow" type="Node" parent="StateMachine" unique_id=1552088189 node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_0830c")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://beyo41jd43t8x"
