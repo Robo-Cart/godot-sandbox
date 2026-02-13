@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://x31rxlj06glb"]
 
 [ext_resource type="Texture2D" uid="uid://cyhnca7ho0psh" path="res://Assets/Sprites/Player/Run/GirlSample_Run_Right.png" id="1_cvnsp"]
-[ext_resource type="Script" uid="uid://b4p0acq2kuyjw" path="res://Scripts/player.gd" id="1_qqcod"]
+[ext_resource type="Script" uid="uid://b4p0acq2kuyjw" path="res://Player/Scripts/player.gd" id="1_qqcod"]
 [ext_resource type="Texture2D" uid="uid://bavve8ljmtfwu" path="res://Assets/Sprites/Player/Run/GirlSample_Run_Left.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://j6o02phagxlh" path="res://Assets/Sprites/Player/Idle/GirlSample_ReadyIdle_Right.png" id="2_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://bney6a1wj4j4w" path="res://Assets/Sprites/Player/Idle/GirlSample_ReadyIdle_Down.png" id="3_gymyn"]
