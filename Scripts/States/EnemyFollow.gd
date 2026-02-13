@@ -23,5 +23,5 @@ func Physics_Update(_delta: float):
 	else:
 		enemy.velocity = Vector2.ZERO
 	
-	#if distance_to_target > 100:
-	#	Transitioned.emit(self, "idle")
+	if distance_to_target > detect_range:
+		Transitioned.emit(self, "idle")
