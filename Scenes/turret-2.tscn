@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bwdujvrtv1omi"]
+[gd_scene format=3 uid="uid://kfqauq6ccsrv"]
 
-[ext_resource type="Script" uid="uid://ca3po0qu1x2r2" path="res://Scripts/turret.gd" id="1_6spbj"]
-[ext_resource type="Texture2D" uid="uid://bq24xqv1ko5ay" path="res://Assets/Sprites/TurretSprite2.png" id="2_hskch"]
+[ext_resource type="Script" uid="uid://ca3po0qu1x2r2" path="res://Scripts/turret.gd" id="1_147dy"]
+[ext_resource type="Texture2D" uid="uid://bxnnxjyxxtjv1" path="res://Assets/Sprites/TurretSprite.png" id="2_qbvpa"]
 
 [sub_resource type="Animation" id="Animation_61csa"]
 resource_name = "Down"
@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -120,7 +120,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -172,7 +172,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -247,7 +247,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -275,7 +275,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -329,7 +329,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -381,7 +381,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -433,7 +433,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hskch")]
+"values": [ExtResource("2_qbvpa")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -536,12 +536,12 @@ states/Idle/position = Vector2(334.66666, 100.44444)
 radius = 11.045361
 
 [node name="Turret" type="CharacterBody2D" unique_id=496178693 node_paths=PackedStringArray("animation_tree")]
-script = ExtResource("1_6spbj")
+script = ExtResource("1_147dy")
 animation_tree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1964403397]
-scale = Vector2(0.56250006, 0.56250006)
-texture = ExtResource("2_hskch")
+scale = Vector2(0.24325581, 0.24325581)
+texture = ExtResource("2_qbvpa")
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1671868547]
@@ -553,5 +553,5 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0.0067516565, -0.0057581663)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1817255549]
-position = Vector2(0, -1)
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_sbqpt")
