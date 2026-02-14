@@ -17,9 +17,6 @@ extends CharacterBody2D
 
 signal damaged(attack: Attack)
 
-@export_group("Textures")
-@export var textures: Array[Texture2D] = []
-
 @export_group("Vision Ranges")
 @export var detection_radius := 100.0
 @export var chase_radius := 200.0
@@ -27,15 +24,8 @@ signal damaged(attack: Attack)
 @export var attack_range := 20.0
 @export var attacking_movement_speed:= 30.0
 
-@onready var sprite : Sprite2D = $Sprite2D
-
 var alive := true
 var stunned := false
-
-
-func _ready():
-	sprite.texture = textures.pick_random()
-
 
 func on_damaged(attack: Attack) -> void:
 	damaged.emit(attack)

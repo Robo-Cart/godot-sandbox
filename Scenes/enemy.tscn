@@ -60,29 +60,7 @@ blend_point_3/pos = Vector2(0, 1.1)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_po0sg"]
-animation = &"Moving"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_haro7"]
-animation = &"Moving"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_56vhr"]
-animation = &"Moving"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ta2yt"]
-animation = &"Moving"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_287tu"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_po0sg")
-blend_point_0/pos = Vector2(-1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_haro7")
-blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_56vhr")
-blend_point_2/pos = Vector2(0, -1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_ta2yt")
-blend_point_3/pos = Vector2(0, 1.1)
-min_space = Vector2(-1, -1.1)
-max_space = Vector2(1, 1.1)
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_8uf12"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4x7e"]
 animation = &"Spawning"
@@ -132,19 +110,45 @@ blend_point_3/pos = Vector2(0, 1.1)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_po0sg"]
+animation = &"Moving"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_haro7"]
+animation = &"Moving"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_56vhr"]
+animation = &"Moving"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ta2yt"]
+animation = &"Moving"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_287tu"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_po0sg")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_haro7")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_56vhr")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ta2yt")
+blend_point_3/pos = Vector2(0, 1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1f0kj"]
-states/Attacking/node = SubResource("AnimationNodeBlendSpace2D_1f0kj")
-states/Attacking/position = Vector2(690.4815, 99.77778)
 states/End/position = Vector2(917, 100)
-states/Idle/node = SubResource("AnimationNodeBlendSpace2D_afpow")
-states/Idle/position = Vector2(500, 100)
-states/Moving/node = SubResource("AnimationNodeBlendSpace2D_287tu")
-states/Moving/position = Vector2(689.5432, 233.88889)
-states/Spawning/node = SubResource("AnimationNodeBlendSpace2D_0830c")
-states/Spawning/position = Vector2(346, 100)
 states/Start/position = Vector2(173, 100)
-states/TakingDamage/node = SubResource("AnimationNodeBlendSpace2D_ghaa6")
-states/TakingDamage/position = Vector2(499.11115, 234.33333)
+states/attacking/node = SubResource("AnimationNodeBlendSpace2D_1f0kj")
+states/attacking/position = Vector2(690.4815, 99.77778)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_afpow")
+states/idle/position = Vector2(500, 100)
+states/run/node = SubResource("AnimationNodeBlendSpace1D_8uf12")
+states/run/position = Vector2(779, 210.71428)
+states/spawning/node = SubResource("AnimationNodeBlendSpace2D_0830c")
+states/spawning/position = Vector2(346, 100)
+states/stunned/node = SubResource("AnimationNodeBlendSpace2D_ghaa6")
+states/stunned/position = Vector2(499.11115, 234.33333)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_287tu")
+states/walk/position = Vector2(689.5432, 233.88889)
 graph_offset = Vector2(-236, -16.28572)
 
 [sub_resource type="Animation" id="Animation_1f0kj"]
@@ -398,11 +402,12 @@ shape = SubResource("CircleShape2D_auwsv")
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=809687129]
 tree_root = SubResource("AnimationNodeStateMachine_1f0kj")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Attacking/blend_position = Vector2(0, 0)
-parameters/Idle/blend_position = Vector2(0, 0)
-parameters/Moving/blend_position = Vector2(0, 0)
-parameters/Spawning/blend_position = Vector2(0, 0)
-parameters/TakingDamage/blend_position = Vector2(0, 0)
+parameters/attacking/blend_position = Vector2(0, 0)
+parameters/idle/blend_position = Vector2(0, 0)
+parameters/run/blend_position = 0.0
+parameters/spawning/blend_position = Vector2(0, 0)
+parameters/stunned/blend_position = Vector2(0, 0)
+parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1730049430]
 libraries/ = SubResource("AnimationLibrary_auwsv")
