@@ -55,6 +55,14 @@ func _ready():
 	print("Tree root:", $AnimationTree.tree_root)
 	print("Parameters:", $AnimationTree.get("parameters"))
 	print("Playback:", $AnimationTree.get("parameters/playback"))
+	
+
+# visual distance for states
+func _draw() -> void:
+	draw_arc(Vector2.ZERO, detection_radius, 0, 360, 50, Color.DARK_SALMON, 0.5, true)
+	draw_arc(Vector2.ZERO, chase_radius, 0, 360, 50, Color.AQUAMARINE, 0.5, true)
+	draw_arc(Vector2.ZERO, follow_radius, 0, 360, 50, Color.CHARTREUSE, 0.5, true)
+	draw_arc(Vector2.ZERO, attack_range, 0, 360, 50, Color.CRIMSON, 0.5, true)
 
 func play_animation(name: String):
 	if playback:

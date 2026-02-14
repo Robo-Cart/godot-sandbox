@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	select_animation()
 	update_animation_parameters()
-
+	
 func select_animation():
 	if velocity == Vector2.ZERO:
 		playback.travel("Idle")
