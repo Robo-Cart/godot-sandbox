@@ -12,7 +12,6 @@ signal transitioned(state: EnemyState, new_state_name: String)
 @onready var enemy : Enemy = get_owner()
 var player : Player
 
-
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	enemy.damaged.connect(on_damaged)

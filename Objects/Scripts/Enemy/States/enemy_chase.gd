@@ -23,5 +23,5 @@ func physics_process_state(delta: float):
 		
 	enemy.velocity = direction.normalized()*chase_speed
 	
-	
+	enemy.play_animation("stunned")
 	enemy.move_and_slide()
