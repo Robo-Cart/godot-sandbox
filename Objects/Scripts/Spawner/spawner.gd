@@ -3,7 +3,7 @@ extends StaticBody2D
 
 @export_group("Spawner Parameters")
 @export var active: bool = true
-@export var spawns_per_second: float = 0.1
+@export var spawns_per_second: float = 1
 @export var spawn_location_variation_x: float = 10
 @export var spawn_location_variation_y: float = 30
 

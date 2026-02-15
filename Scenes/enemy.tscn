@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b1ytn3sggsq6y" path="res://Objects/Scripts/Enemy/States/enemy_wander.gd" id="6_1dp5w"]
 [ext_resource type="Script" uid="uid://djifcnqxdwmnd" path="res://Objects/Scripts/Enemy/States/enemy_stun.gd" id="7_auwsv"]
 [ext_resource type="Script" uid="uid://7soxufsseiif" path="res://Objects/Scripts/Enemy/States/enemy_attack.gd" id="8_auwsv"]
+[ext_resource type="Script" uid="uid://x0x44hjo7pxk" path="res://Objects/Scripts/Enemy/States/enemy_spawn.gd" id="9_8uf12"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_auwsv"]
 radius = 2.0
@@ -176,6 +177,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("1_hghv2")]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyStateMachine/Spawn")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_spawn_animation_finished"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_1dp5w"]
@@ -394,13 +409,13 @@ max_space = Vector2(1, 1.1)
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_5xdhn")
 states/Attack/position = Vector2(392, 211)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_56vhr")
-states/Idle/position = Vector2(347, 108)
+states/Idle/position = Vector2(478, 55)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_8cim4")
 states/Run/position = Vector2(553, 183)
 states/Spawn/node = SubResource("AnimationNodeBlendSpace2D_bx1xr")
-states/Spawn/position = Vector2(659, 94)
+states/Spawn/position = Vector2(341, 55)
 states/Stun/node = SubResource("AnimationNodeBlendSpace2D_hgeoe")
-states/Stun/position = Vector2(502, 86)
+states/Stun/position = Vector2(673, 78)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_q0iv8")
 states/Walk/position = Vector2(679, 191)
 
@@ -434,7 +449,7 @@ parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="EnemyStateMachine" type="Node" parent="." unique_id=1011469173 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_287tu")
-initial_state = NodePath("Idle")
+initial_state = NodePath("Spawn")
 
 [node name="Idle" type="Node" parent="EnemyStateMachine" unique_id=1040478947]
 script = ExtResource("3_0830c")
@@ -450,3 +465,6 @@ script = ExtResource("7_auwsv")
 
 [node name="Attack" type="Node" parent="EnemyStateMachine" unique_id=1252497846]
 script = ExtResource("8_auwsv")
+
+[node name="Spawn" type="Node" parent="EnemyStateMachine" unique_id=1091859603]
+script = ExtResource("9_8uf12")
