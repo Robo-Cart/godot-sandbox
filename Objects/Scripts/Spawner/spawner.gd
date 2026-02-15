@@ -4,8 +4,8 @@ extends StaticBody2D
 @export_group("Spawner Parameters")
 @export var active: bool = true
 @export var spawns_per_second: float = 0.1
-@export var spawn_location_variation_x: float = 5
-@export var spawn_location_variation_y: float = 20
+@export var spawn_location_variation_x: float = 10
+@export var spawn_location_variation_y: float = 30
 
 @export var enemy_scene = preload("res://Scenes/enemy.tscn")
 
@@ -31,6 +31,6 @@ func on_timer_finished():
 	number_of_spawned_enemies += 1
 	spawned_enemy.name = "Enemy_%d" % number_of_spawned_enemies
 	get_tree().root.add_child(spawned_enemy)
-	spawned_enemy.global_position.x = spawn_area_location.global_position.x + randf_range(0, spawn_location_variation_x)
-	spawned_enemy.global_position.y = spawn_area_location.global_position.y + randf_range(0, spawn_location_variation_y)
+	spawned_enemy.global_position.x = spawn_area_location.global_position.x + randf_range(-spawn_location_variation_x, spawn_location_variation_x)
+	spawned_enemy.global_position.y = spawn_area_location.global_position.y + randf_range(-spawn_location_variation_y, spawn_location_variation_y)
 	print("Spawned enemy: ", spawned_enemy)

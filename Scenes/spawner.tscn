@@ -17,4 +17,4 @@ texture = ExtResource("1_2bop2")
 shape = SubResource("RectangleShape2D_0dymf")
 
 [node name="SpawnAreaMarker" type="Node2D" parent="." unique_id=1737624787]
-position = Vector2(20, 0)
+position = Vector2(28, 0)
