@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 func select_animation():
 	if velocity == Vector2.ZERO:
 		playback.travel("Idle")
-	elif velocity.length() < 150:
+	elif velocity.length() < 130:
 		playback.travel("Walk")
 	else:
 		playback.travel("Run")
@@ -49,3 +49,4 @@ func update_animation_parameters():
 		
 	animation_tree["parameters/Idle/blend_position"] = input
 	animation_tree["parameters/Run/blend_position"] = input
+	animation_tree["parameters/Walk/blend_position"] = input
