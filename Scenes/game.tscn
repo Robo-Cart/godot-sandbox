@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btawln3qidduy" path="res://Scenes/enemy.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://chuxmxy42fppi" path="res://Scenes/drone.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bwdujvrtv1omi" path="res://Scenes/turret.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://d1ibj27unjyc7" path="res://Scenes/spawner.tscn" id="6_i6g32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6g32"]
 texture = ExtResource("2_3dryh")
@@ -1179,3 +1180,6 @@ position = Vector2(567, 522)
 
 [node name="Turret4" parent="." unique_id=2136568357 instance=ExtResource("5_wowpa")]
 position = Vector2(590, 220)
+
+[node name="Spawner" parent="." unique_id=1690014197 instance=ExtResource("6_i6g32")]
+position = Vector2(408, 472)

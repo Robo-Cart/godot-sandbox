@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btawln3qidduy"]
 
 [ext_resource type="Script" uid="uid://jw3ouqa20vx0" path="res://Objects/Scripts/Enemy/enemy.gd" id="1_0830c"]
-[ext_resource type="Texture2D" uid="uid://bb7ahnhyaunbh" path="res://Assets/Sprites/slime_green.png" id="1_hghv2"]
+[ext_resource type="Texture2D" uid="uid://bb7ahnhyaunbh" path="res://Assets/Sprites/Enemy/slime_green.png" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://dr4m1yn56ayjt" path="res://Objects/Scripts/Enemy/enemy_state_machine.gd" id="2_287tu"]
 [ext_resource type="Script" uid="uid://7kl3rn6p0unw" path="res://Objects/Scripts/Enemy/States/enemy_idle.gd" id="3_0830c"]
 [ext_resource type="Script" uid="uid://coguwfny6tx4v" path="res://Objects/Scripts/Enemy/States/enemy_chase.gd" id="4_ghaa6"]

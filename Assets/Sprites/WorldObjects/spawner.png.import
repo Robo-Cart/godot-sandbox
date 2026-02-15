@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7ahnhyaunbh"
-path="res://.godot/imported/slime_green.png-742331d8a736d5c2ff3aa448ac3a7524.ctex"
+uid="uid://bcatcs2ujm85p"
+path="res://.godot/imported/spawner.png-d29cc7da67c3cb53c9034dda8d513b18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/slime_green.png"
-dest_files=["res://.godot/imported/slime_green.png-742331d8a736d5c2ff3aa448ac3a7524.ctex"]
+source_file="res://Assets/Sprites/WorldObjects/spawner.png"
+dest_files=["res://.godot/imported/spawner.png-d29cc7da67c3cb53c9034dda8d513b18.ctex"]
 
 [params]
 

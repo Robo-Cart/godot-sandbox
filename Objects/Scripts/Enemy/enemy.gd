@@ -41,6 +41,7 @@ func _ready():
 		
 
 func _physics_process(delta: float) -> void:
+	# Ensure facing direction of movement and do not revert to default facing when stopped
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x < 0
 	
