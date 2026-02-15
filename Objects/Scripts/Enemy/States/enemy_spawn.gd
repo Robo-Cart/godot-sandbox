@@ -8,4 +8,4 @@ func physics_process_state(delta: float):
 		enemy.play_animation("Spawn")
 
 func _on_spawn_animation_finished():
-	transitioned.emit(self, "idle")
+	transitioned.emit(self, "wander")
