@@ -23,8 +23,11 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if (!active):
-		return
-	pass
+		if spawn_timer.paused == false:
+			spawn_timer.paused = true
+	else:
+		if spawn_timer.paused == true:
+			spawn_timer.paused = false
 
 func on_timer_finished():
 	var spawned_enemy = enemy_scene.instantiate()
