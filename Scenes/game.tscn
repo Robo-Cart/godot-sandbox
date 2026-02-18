@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://iasdy6e4dgxo" path="res://Assets/Sprites/roguelikeCity_magenta.png" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://chuxmxy42fppi" path="res://Scenes/drone.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bwdujvrtv1omi" path="res://Scenes/turret.tscn" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://bc3lcseebd75" path="res://Scenes/player_man.gd" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://d1ibj27unjyc7" path="res://Scenes/spawner.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://cf50doqniolbf" path="res://Assets/3D/Player/player_man.tscn" id="7_v158k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6g32"]
 texture = ExtResource("2_3dryh")
@@ -1148,6 +1150,9 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_i6g32")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4fw4"]
+radius = 53.01284
+
 [node name="Game" type="Node2D" unique_id=1486287435]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=874963791]
@@ -1179,3 +1184,34 @@ position = Vector2(567, 522)
 
 [node name="Turret4" parent="." unique_id=2136568357 instance=ExtResource("5_wowpa")]
 position = Vector2(590, 220)
+
+[node name="Player_Man" type="CharacterBody2D" parent="." unique_id=1689408825]
+position = Vector2(674, 349)
+scale = Vector2(0.24000001, 0.24000001)
+script = ExtResource("6_1l0tm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Man" unique_id=763382012]
+position = Vector2(-4.1667886, 29.166662)
+shape = SubResource("CircleShape2D_h4fw4")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Player_Man" unique_id=261087911]
+offset_left = -122.0
+offset_top = -124.0
+offset_right = 134.0
+offset_bottom = 132.0
+
+[node name="SubViewport" type="SubViewport" parent="Player_Man/SubViewportContainer" unique_id=498954352]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Player_Man/SubViewportContainer/SubViewport" unique_id=238921330]
+transform = Transform3D(1, 0, 0, 0, 0.23011775, 0.97316283, 0, -0.97316283, 0.23011775, -0.035351574, 3.0616362, 0.62931395)
+projection = 1
+fov = 57.1
+size = 1.5
+
+[node name="player_man" parent="Player_Man/SubViewportContainer/SubViewport" unique_id=915917247 instance=ExtResource("7_v158k")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Player_Man" unique_id=384441510]
