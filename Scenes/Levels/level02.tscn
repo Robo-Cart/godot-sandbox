@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dvodd4n4b32mt" path="res://Scenes/Levels/Scripts/level.gd" id="1_37pbq"]
 [ext_resource type="Texture2D" uid="uid://iasdy6e4dgxo" path="res://Assets/Sprites/roguelikeCity_magenta.png" id="1_k6nyd"]
 [ext_resource type="PackedScene" uid="uid://d1ibj27unjyc7" path="res://Scenes/spawner.tscn" id="2_37pbq"]
+[ext_resource type="PackedScene" uid="uid://dd3n14uxp5n4v" path="res://Scenes/Levels/level_transition.tscn" id="4_elhyt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_elhyt"]
 texture = ExtResource("1_k6nyd")
@@ -1162,3 +1163,9 @@ position = Vector2(272.6667, 396.6667)
 
 [node name="Spawner3" parent="TileMapLayer" unique_id=161655602 instance=ExtResource("2_37pbq")]
 position = Vector2(275.33334, 234.66667)
+
+[node name="LevelTransition" parent="." unique_id=1072022827 instance=ExtResource("4_elhyt")]
+position = Vector2(736, 272)
+level = "uid://ca48rgi7w57xg"
+size = 3
+side = 2

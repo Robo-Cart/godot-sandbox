@@ -1168,9 +1168,14 @@ position = Vector2(642.6667, 261.33334)
 position = Vector2(-30.666668, -1.3333334)
 
 [node name="LevelTransition" parent="." unique_id=1072022827 instance=ExtResource("4_nheiv")]
-position = Vector2(889, 649)
+position = Vector2(896, 656)
+level = "uid://dfl4u8xubwivc"
+size = 3
+side = 3
 
 [node name="LevelTransition2" parent="." unique_id=2124456767 instance=ExtResource("4_nheiv")]
-position = Vector2(1062, 545)
+position = Vector2(1056, 544)
+level = "uid://b0w7w8buw8d6k"
+side = 1
 
 [editable path="TileMapLayer/Spawner3"]
