@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://jl0jx63r4xs5"]
 
+[ext_resource type="PackedScene" uid="uid://x31rxlj06glb" path="res://Player/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://iasdy6e4dgxo" path="res://Assets/Sprites/roguelikeCity_magenta.png" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://chuxmxy42fppi" path="res://Scenes/drone.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bwdujvrtv1omi" path="res://Scenes/turret.tscn" id="5_wowpa"]
@@ -1162,6 +1163,13 @@ tile_set = SubResource("TileSet_1l0tm")
 [node name="Spawner" parent="TileMapLayer" unique_id=1690014197 instance=ExtResource("6_i6g32")]
 position = Vector2(276, 320)
 
+[node name="Player" parent="." unique_id=1193761201 instance=ExtResource("1_ebmjs")]
+position = Vector2(581, 357)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1129388052]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
 [node name="Drone" parent="." unique_id=496178693 instance=ExtResource("4_3dryh")]
 position = Vector2(698, 425)
 
@@ -1178,19 +1186,12 @@ position = Vector2(567, 522)
 position = Vector2(590, 220)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=384441510]
-transform = Transform3D(1, 0, 0, 0, 0.17517771, 0.9845368, 0, -0.9845368, 0.17517771, 0, 4.532973, 0)
 
 [node name="Player_Man" type="CharacterBody2D" parent="." unique_id=1689408825]
 position = Vector2(674, 349)
 scale = Vector2(0.24000001, 0.24000001)
 script = ExtResource("6_1l0tm")
 physicscontrol = true
-
-[node name="Camera2D" type="Camera2D" parent="Player_Man" unique_id=1129388052]
-position = Vector2(-8.3333435, 25.000042)
-scale = Vector2(4.1666665, 4.1666665)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Man" unique_id=763382012]
 position = Vector2(-4.1667886, 29.166662)

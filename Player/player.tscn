@@ -1834,7 +1834,7 @@ blend_mode = 1
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sbwqj"]
 states/End/position = Vector2(800.6667, 91.77778)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_y6uwr")
-states/Idle/position = Vector2(416, 91)
+states/Idle/position = Vector2(416, 91.51852)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_11gg7")
 states/Run/position = Vector2(688, 91.77778)
 states/Start/position = Vector2(226, 91)

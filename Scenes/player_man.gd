@@ -5,12 +5,10 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
-@onready var player_man: Node3D = $SubViewportContainer/SubViewport/player_man
-@onready var anim: AnimationPlayer = $SubViewportContainer/SubViewport/player_man.get_node("AnimationPlayer")
-
+@onready var player_man : Node3D = $SubViewportContainer/SubViewport/player_man
+@onready var animation_tree : AnimationTree = $SubViewportContainer/SubViewport/player_man.get_node("AnimationTree")
 
 @export var speed : float = 200
-@export var animation_tree : AnimationTree
 @export var physicscontrol : bool = false
 
 const MAX_SPEED = 300.0
@@ -18,36 +16,54 @@ const ACCELERATION = 800.0
 const FRICTION = 900.0
 
 
-var input :Vector2
+var input_move : Vector2
+var input_aim : Vector2
 var playback : AnimationNodeStateMachinePlayback
+var anim_pos : Vector2
+var look_vector : Vector2
+var player_offset_angle = 89
 
+func _ready() -> void:
+	add_to_group("player")
+	playback = animation_tree["parameters/playback"]
 
 func _process(delta: float) -> void:
-	input = Input.get_vector("Left", "Right", "Up", "Down")
+	input_move = Input.get_vector("Left", "Right", "Up", "Down")
+	input_aim = Input.get_vector("Aim Left", "Aim Right", "Aim Up", "Aim Down")
+	
 	
 	# Check player control to use physics based control
 	if physicscontrol:
-		if input:
+		if input_move:
 			# Acceleration (Weighty start)
-			velocity = velocity.move_toward(input * MAX_SPEED, ACCELERATION * delta)
+			velocity = velocity.move_toward(input_move * MAX_SPEED, ACCELERATION * delta)			
 		else:
 			# Friction (Weighty stop)
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	else:
-		velocity = input * speed
+		velocity = input_move * speed
+	
+	if input_move != Vector2.ZERO:
+		player_man.rotation.y = -input_move.angle()+player_offset_angle
+	if input_aim != Vector2.ZERO:
+		player_man.rotation.y = -input_aim.angle()+player_offset_angle
 	
 	move_and_slide()
 	select_animation()
 	update_animation_parameters()
 	
 func select_animation():
-	if velocity == Vector2.ZERO:
-		anim.play("Anim/idle")
-	elif velocity.length() < 130:
-		anim.play("Anim/walk forward")
+	if velocity.length() < 130:
+		playback.travel("Walk")
 	else:
-		anim.play("Anim/run forward")
+		playback.travel("Run")
 
 func update_animation_parameters():
-	if input == Vector2.ZERO:
-		return
+	
+	if input_move != Vector2.ZERO:
+		anim_pos = input_move.rotated(player_man.rotation.y)
+	if input_aim != Vector2.ZERO:
+		anim_pos = input_aim.rotated(player_man.rotation.y)
+	
+	animation_tree["parameters/Run/blend_position"] = input_move
+	animation_tree["parameters/Walk/blend_position"] = input_move

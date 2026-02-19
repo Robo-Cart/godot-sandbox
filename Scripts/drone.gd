@@ -6,7 +6,7 @@ extends CharacterBody2D
 var direction :Vector2
 var playback : AnimationNodeStateMachinePlayback
 
-@onready var player: Node2D = get_node("../Player") # Update path to player
+@onready var player: Node2D = get_node("../Player_Man") # Update path to player
 
 func _ready():
 	playback = animation_tree["parameters/playback"]
