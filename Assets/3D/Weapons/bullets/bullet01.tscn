@@ -6,7 +6,7 @@
 
 [sub_resource type="Gradient" id="Gradient_id111"]
 offsets = PackedFloat32Array(0, 0.46961325, 1)
-colors = PackedColorArray(0.92, 0.24978006, 0.064399995, 1, 0.468777, 0.46877706, 0.468777, 1, 0.24115604, 0.24115604, 0.24115604, 0.22745098)
+colors = PackedColorArray(0.9833358, 0.7587462, 0.11645999, 1, 0.468777, 0.46877706, 0.468777, 1, 0.24115604, 0.24115604, 0.24115604, 0.22745098)
 
 [node name="Bullet01" type="Sprite2D" unique_id=705673090]
 rotation = 3.1415927

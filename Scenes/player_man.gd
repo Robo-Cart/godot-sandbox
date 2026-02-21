@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var GunShot : AudioStreamPlayer2D = $GunShot
 @onready var Impact : AudioStreamPlayer2D = $Impact
 @onready var MuzzleParticles : CPUParticles2D = $CentrePoint/ShootPos/MuzzleParticles
+@onready var Camera : Camera2D = $Camera2D
 
 @export var speed : float = 200
 @export var physicscontrol : bool = false
@@ -33,7 +34,7 @@ var player_offset_angle = 89.5
 var bullet_scene = preload("res://Assets/3D/Weapons/bullets/bullet01.tscn")
 var time_between_shot : float = 0.25
 var can_shoot : bool = true
-var shot_force : float = 5
+var shot_force : float = 50
 
 
 func _ready() -> void:
@@ -59,10 +60,12 @@ func _physics_process(delta: float) -> void:
 	
 	if input_aim != Vector2.ZERO:
 		player_man.rotation.y = -input_aim.angle()+player_offset_angle
-		$CentrePoint.global_rotation= input_aim.angle()
+		$CentrePoint.global_rotation = input_aim.angle()
+		look_vector = input_aim.normalized()
 	if input_move != Vector2.ZERO and input_aim == Vector2.ZERO:
 		player_man.rotation.y = -input_move.angle()+player_offset_angle
 		$CentrePoint.global_rotation = input_move.angle()
+		look_vector = input_move.normalized()
 		
 	if Input.is_action_pressed("Fire") and can_shoot:
 		_shoot()
@@ -70,7 +73,11 @@ func _physics_process(delta: float) -> void:
 		$ShootTimer.start()
 		GunShot.play()
 		MuzzleParticles.emitting = true
+		#shake camera
+		$Camera2D.add_trauma(0.15)
 		#apply force to player from front shot_force
+		velocity -= look_vector * shot_force
+		
 	
 	move_and_slide()
 	select_animation()

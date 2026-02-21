@@ -162,9 +162,6 @@ visible = false
 transform = Transform3D(-0.38198367, 0.8631589, -0.30749184, 0.3348962, 0.34513447, 0.94548684, 1.2353864, 0.17333004, -0.3513859, -0.008875847, 0.1077255, 0.03372089)
 visible = false
 
-[node name="shoot_pos" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(279544748) index="1" unique_id=2142692825]
-transform = Transform3D(-0.14424722, -0.06779852, 0.9872166, 0.9247128, 0.34592685, 0.15887147, -0.3522756, 0.9358087, 0.012795197, -0.24207768, 1.1449924, 0.73260164)
-
 [node name="AnimationPlayer" parent="." index="1" unique_id=540353055]
 autoplay = &"idle"
 
