@@ -8,7 +8,8 @@ var playback : AnimationNodeStateMachinePlayback
 
 @onready var player: Node2D = get_node("../Player_Man") # Update path to player
 
-func _ready():
+func _ready():	
+	add_to_group("enemy")
 	playback = animation_tree["parameters/playback"]
 	playback.travel("Idle")
 	
@@ -16,10 +17,10 @@ func _ready():
 func _process(delta: float) -> void:
 	direction = (player.position - position).normalized()
 	#velocity = direction * speed
-
+	
 	move_and_slide()
 	update_animation_parameters()
 	
-	
+
 func update_animation_parameters():
 	animation_tree["parameters/Idle/blend_position"] = direction

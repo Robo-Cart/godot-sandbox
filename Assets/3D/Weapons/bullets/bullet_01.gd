@@ -22,6 +22,11 @@ func _physics_process(delta: float) -> void:
 			$DistanceTimeout.start()
 			
 		global_position += Vector2(1, 0).rotated(rotation) * speed * delta
+		
+		if RayCast.is_colliding() and RayCast.get_collider().is_in_group("enemy"):
+			#if hit enemy signal play hit animation HitFlashAnim.play()
+			var enemy = RayCast.get_collider().get_node("HitFlashAnim")
+			enemy.play("hit")
 	
 
 func _on_distance_timeout_timeout() -> void:

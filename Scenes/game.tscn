@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://jl0jx63r4xs5"]
 
+[ext_resource type="Shader" uid="uid://g2cg0knko378" path="res://Assets/Sprites/Enemy/hit_flash.gdshader" id="1_h4fw4"]
 [ext_resource type="Script" uid="uid://cncntedxtoqtr" path="res://Scenes/camera.gd" id="1_v158k"]
 [ext_resource type="Texture2D" uid="uid://iasdy6e4dgxo" path="res://Assets/Sprites/roguelikeCity_magenta.png" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://chuxmxy42fppi" path="res://Scenes/drone.tscn" id="4_3dryh"]
@@ -8,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://d1ibj27unjyc7" path="res://Scenes/spawner.tscn" id="6_i6g32"]
 [ext_resource type="AudioStream" uid="uid://dpsm18x5ojmb4" path="res://Assets/Sounds/Weapons/AR15 Single Shot 3.wav" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://cf50doqniolbf" path="res://Assets/3D/Player/player_man.tscn" id="7_v158k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldgsr"]
+resource_local_to_scene = true
+shader = ExtResource("1_h4fw4")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6g32"]
 texture = ExtResource("2_3dryh")
@@ -1159,6 +1166,7 @@ offsets = PackedFloat32Array(0, 0.46961325, 1)
 colors = PackedColorArray(0.92, 0.24978006, 0.064399995, 1, 0.468777, 0.46877706, 0.468777, 1, 0.24115604, 0.24115604, 0.24115604, 0.22745098)
 
 [node name="Game" type="Node2D" unique_id=1486287435]
+material = SubResource("ShaderMaterial_ldgsr")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=874963791]
 z_index = -1

@@ -32,6 +32,7 @@ func on_damaged(attack: Attack) -> void:
 	damaged.emit(attack)
 
 func _ready():
+	add_to_group("enemy")
 	animation_tree.active = true
 	
 	playback = animation_tree.get("parameters/playback")
