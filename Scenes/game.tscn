@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://d1ibj27unjyc7" path="res://Scenes/spawner.tscn" id="6_i6g32"]
 [ext_resource type="AudioStream" uid="uid://dpsm18x5ojmb4" path="res://Assets/Sounds/Weapons/AR15 Single Shot 3.wav" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://cf50doqniolbf" path="res://Assets/3D/Player/player_man.tscn" id="7_v158k"]
+[ext_resource type="PackedScene" uid="uid://dmy8ofvovrvfp" path="res://Scenes/PickUps/SpeedUp.tscn" id="10_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://bdx8t6nicos3i" path="res://Scenes/PickUps/Fire Rate Up.tscn" id="11_o5yvi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ldgsr"]
 resource_local_to_scene = true
@@ -1197,7 +1199,7 @@ position = Vector2(590, 220)
 transform = Transform3D(1, 0, 0, 0, 0.17517771, 0.9845368, 0, -0.9845368, 0.17517771, 0, 4.532973, 0)
 
 [node name="Player_Man" type="CharacterBody2D" parent="." unique_id=1689408825]
-light_mask = 3
+light_mask = 2
 visibility_layer = 3
 z_index = 1
 position = Vector2(674, 349)
@@ -1274,5 +1276,13 @@ color_ramp = SubResource("Gradient_1l0tm")
 stream = ExtResource("7_1l0tm")
 volume_db = -16.0
 pitch_scale = 0.63
+
+[node name="Pick ups" type="Node" parent="." unique_id=642904493]
+
+[node name="SpeedUp" parent="Pick ups" unique_id=451390207 instance=ExtResource("10_ldgsr")]
+position = Vector2(920, 495)
+
+[node name="FireRateUp" parent="Pick ups" unique_id=1185859690 instance=ExtResource("11_o5yvi")]
+position = Vector2(973, 495)
 
 [connection signal="timeout" from="Player_Man/ShootTimer" to="Player_Man" method="_on_shot_timer_timeout"]

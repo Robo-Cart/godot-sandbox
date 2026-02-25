@@ -15,10 +15,9 @@ extends CharacterBody2D
 @export var speed : float = 200
 @export var physicscontrol : bool = false
 @export var bullet_speed = 1000
+@export var MAX_SPEED = 200.0
+@export var ACCELERATION = 800.0
 
-
-const MAX_SPEED = 200.0
-const ACCELERATION = 800.0
 const FRICTION = 900.0
 
 const IS_PLAYER = true
