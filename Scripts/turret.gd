@@ -5,16 +5,22 @@ extends CharacterBody2D
 
 var direction :Vector2
 var playback : AnimationNodeStateMachinePlayback
+var health 
+var dead : bool = false
 
-@onready var player: Node2D = get_node("../Player_Man") # Update path to player
+@onready var player : Node2D = get_node("../../Player_Man") # Update path to player
+@onready var healthbar = $HealthBar
 
 func _ready():	
 	add_to_group("enemy")
 	playback = animation_tree["parameters/playback"]
 	playback.travel("Idle")
 	
+	health = 5
+	healthbar.init_health(health)
+	
 
-func _process(delta: float) -> void:
+func  _physics_process(delta: float) -> void:
 	direction = (player.position - position).normalized()
 	#velocity = direction * speed
 	
@@ -24,3 +30,24 @@ func _process(delta: float) -> void:
 
 func update_animation_parameters():
 	animation_tree["parameters/Idle/blend_position"] = direction
+	
+
+func _set_health(value):
+	if !dead :
+		if health > 0: 
+			healthbar.health = health
+		else:
+			dead = true
+			$DieParticle.emitting = true
+			set_deferred("monitoring", false)
+			get_node("Sprite2D").hide()
+			$Explode.play()
+			$DieTime.start()
+	
+func _take_damage(value):
+	health += value
+	_set_health(health)
+
+
+func _on_die_time_timeout() -> void:
+	queue_free()

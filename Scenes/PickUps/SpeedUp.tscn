@@ -7,6 +7,7 @@
 radius = 8.0
 
 [node name="SpeedUp" type="Area2D" unique_id=451390207]
+collision_layer = 16
 script = ExtResource("1_cp3js")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082715258]

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ca3po0qu1x2r2" path="res://Scripts/turret.gd" id="1_6spbj"]
 [ext_resource type="Shader" uid="uid://g2cg0knko378" path="res://Assets/Sprites/Enemy/hit_flash.gdshader" id="2_6spbj"]
 [ext_resource type="Texture2D" uid="uid://bq24xqv1ko5ay" path="res://Assets/Sprites/TurretSprite2.png" id="2_hskch"]
+[ext_resource type="PackedScene" uid="uid://ce20ploalaift" path="res://Player/HealthBar.tscn" id="4_pulj5"]
+[ext_resource type="AudioStream" uid="uid://cvpgodueudekp" path="res://Assets/Sounds/impacts/Explosion Raw 1.wav" id="5_ahfaj"]
 
 [sub_resource type="Animation" id="Animation_61csa"]
 resource_name = "Down"
@@ -603,6 +605,10 @@ _data = {
 &"hit": SubResource("Animation_ahfaj")
 }
 
+[sub_resource type="Gradient" id="Gradient_pulj5"]
+offsets = PackedFloat32Array(0, 0.17012449, 0.75103736, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.23333335, 0, 1, 0.27752772, 0.27752775, 0.27752766, 1, 0.24115604, 0.24115604, 0.24115604, 0.22745098)
+
 [node name="Turret" type="CharacterBody2D" unique_id=496178693 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_6spbj")
 animation_tree = NodePath("AnimationTree")
@@ -626,3 +632,39 @@ shape = SubResource("CircleShape2D_sbqpt")
 
 [node name="HitFlashAnim" type="AnimationPlayer" parent="." unique_id=734925830]
 libraries/ = SubResource("AnimationLibrary_ku01o")
+
+[node name="HealthBar" parent="." unique_id=1858055954 instance=ExtResource("4_pulj5")]
+offset_left = -11.0
+offset_top = -24.0
+offset_right = 11.0
+offset_bottom = -21.0
+
+[node name="DieTime" type="Timer" parent="." unique_id=658876946]
+wait_time = 0.25
+
+[node name="DieParticle" type="CPUParticles2D" parent="." unique_id=1701220864]
+position = Vector2(1.9073486e-06, 1.1368684e-13)
+emitting = false
+amount = 24
+lifetime = 0.18000000000000002
+one_shot = true
+explosiveness = 0.74
+randomness = 0.48
+lifetime_randomness = 0.65
+emission_shape = 1
+emission_sphere_radius = 7.69
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 137.43
+initial_velocity_max = 264.1
+scale_amount_min = 11.67
+scale_amount_max = 31.67
+color = Color(1, 1, 1, 0.9254902)
+color_ramp = SubResource("Gradient_pulj5")
+
+[node name="Explode" type="AudioStreamPlayer2D" parent="." unique_id=970996301]
+position = Vector2(1.9073486e-06, 1.1368684e-13)
+stream = ExtResource("5_ahfaj")
+
+[connection signal="timeout" from="DieTime" to="." method="_on_die_time_timeout"]

@@ -56,3 +56,6 @@ func play_animation(name: String):
 		playback.travel(name)
 	else:
 		push_error("Tried to play animation but playback is null.")
+
+func _take_damage(value):
+	pass
