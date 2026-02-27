@@ -28,6 +28,8 @@ signal damaged(attack: Attack)
 var alive := true
 var stunned := false
 
+var health = 5
+
 func on_damaged(attack: Attack) -> void:
 	damaged.emit(attack)
 
@@ -57,5 +59,20 @@ func play_animation(name: String):
 	else:
 		push_error("Tried to play animation but playback is null.")
 
+func _set_health(value):
+	if alive :
+		if health < 0: 
+			alive = false
+			#$DieParticle.emitting = true
+			set_deferred("monitoring", false)
+			get_node("Sprite2D").hide()
+			$DeathAudio.play()
+			$DieTime.start()
+
 func _take_damage(value):
-	pass
+	health += value
+	_set_health(health)
+
+
+func _on_die_time_timeout() -> void:
+	queue_free(); # Replace with function body.

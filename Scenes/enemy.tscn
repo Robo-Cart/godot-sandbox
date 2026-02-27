@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://7soxufsseiif" path="res://Objects/Scripts/Enemy/States/enemy_attack.gd" id="8_auwsv"]
 [ext_resource type="Script" uid="uid://x0x44hjo7pxk" path="res://Objects/Scripts/Enemy/States/enemy_spawn.gd" id="9_8uf12"]
 [ext_resource type="Shader" uid="uid://g2cg0knko378" path="res://Assets/Sprites/Enemy/hit_flash.gdshader" id="10_po0sg"]
+[ext_resource type="AudioStream" uid="uid://djc1jg5gte6oo" path="res://Assets/Sounds/impacts/Bloody Axe Impact 6.wav" id="11_haro7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_auwsv"]
 radius = 2.0
@@ -549,3 +550,12 @@ collision_layer = 4
 
 [node name="HurtBox" type="CollisionShape2D" parent="Area2D" unique_id=848484460]
 shape = SubResource("CircleShape2D_po0sg")
+
+[node name="DeathAudio" type="AudioStreamPlayer2D" parent="." unique_id=1822365952]
+stream = ExtResource("11_haro7")
+volume_db = 8.0
+
+[node name="DieTime" type="Timer" parent="." unique_id=559341781]
+wait_time = 0.25
+
+[connection signal="timeout" from="DieTime" to="." method="_on_die_time_timeout"]
